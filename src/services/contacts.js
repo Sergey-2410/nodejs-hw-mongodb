@@ -20,7 +20,6 @@ export const updateContact = async (contactId, payload, options = {}) => {
       ...options,
     },
   );
-  if (!result || !result.value) return null;
   return result;
 };
 export const deleteContact = async (contactId) => {
