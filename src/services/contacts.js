@@ -12,7 +12,7 @@ export const createContact = async (payload) => {
   return contact;
 };
 export const updateContact = async (contactId, payload, options = {}) => {
-  const result = await contactsCollection.findOneAndUpdate(
+  const result = await contactsCollection.findByIdAndUpdate(
     { id: contactId },
     payload,
     {
