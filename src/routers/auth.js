@@ -15,7 +15,6 @@ router.post(
   validateBody(registerUserSchema),
   ctrlWrapper(registerUserController),
 );
-export default router;
 
 router.post(
   '/login',
@@ -23,3 +22,5 @@ router.post(
   ctrlWrapper(loginUserController),
 );
 router.post('/logout', ctrlWrapper(logoutUserController));
+
+export default router;
