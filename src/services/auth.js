@@ -7,7 +7,7 @@ import { FIFTEEN_MINUTES, THIRTY_DAYS } from '../constants/constants.js';
 import jwt from 'jsonwebtoken';
 import { getEnvVar } from '../utils/getEnvVar.js';
 import { sendEmail } from '../utils/sendMail.js';
-import { SMTP, TEMPLATES_DIR } from '../constants/insex.js';
+import { SMTP, TEMPLATES_DIR } from '../constants/index.js';
 import handlebars from 'handlebars';
 import path from 'node:path';
 import fs from 'node:fs/promises';
