@@ -4,6 +4,17 @@ summary: User login
 operationId: logoutUser
 description: Logs the user out and invalidates the token.
 security: []
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        required:
+          - _id
+        properties:
+          sessionId:
+            type: string
+            example: 67ba29f1d0f7bdfd38666e5e
 responses:
   '204':
     description: Successfully logged out
