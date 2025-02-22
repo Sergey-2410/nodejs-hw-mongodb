@@ -4,17 +4,6 @@ summary: Refresh access token
 operationId: refreshSession
 description: Used to get a new JWT without re-entering login credentials.
 security: []
-requestBody:
-  content:
-    application/json:
-      schema:
-        type: object
-        required:
-          - accessToken
-        properties:
-          accessToken:
-            type: string
-            example: lUsz3W5we9kKKvc/XA885Lw+tXoIO5DS4j12yyOa
 responses:
   '200':
     description: Refresh session
