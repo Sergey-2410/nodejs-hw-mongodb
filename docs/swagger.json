@@ -237,9 +237,9 @@
                     "example": "65e4decdd286b30065d54af9"
                   },
                   "photo": {
-                    "description": "Link to contact's photo",
+                    "description": "Contact's photo",
                     "type": "string",
-                    "example": "https://res.cloudinary.com/uqwgdu/image/upload/image.png"
+                    "format": "binary"
                   }
                 }
               }
@@ -350,7 +350,7 @@
         ],
         "summary": "Patch contact by id",
         "operationId": "patchContact",
-        "description": "Updates a contact by its unique ID, modifying only the specified fields while keeping others unchanged.",
+        "description": "Updates a contact by ID, modifying only the provided fields while keeping others unchanged.",
         "security": [
           {
             "bearerAuth": []
@@ -367,6 +367,51 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "New contact name",
+                    "type": "string",
+                    "example": "John Doe"
+                  },
+                  "phoneNumber": {
+                    "description": "New contact phone number",
+                    "type": "string",
+                    "example": "+380000000000"
+                  },
+                  "email": {
+                    "description": "New contact email",
+                    "type": "string",
+                    "example": "example@mail.com"
+                  },
+                  "isFavourite": {
+                    "description": "Set contact as favourite or not",
+                    "type": "boolean",
+                    "example": false
+                  },
+                  "contactType": {
+                    "description": "New contact type",
+                    "type": "string",
+                    "enum": [
+                      "work",
+                      "home",
+                      "personal"
+                    ]
+                  },
+                  "photo": {
+                    "description": "New contact photo",
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successfully patched contact!",
@@ -798,7 +843,7 @@
               "properties": {
                 "status": {
                   "type": "integer",
-                  "example": 401
+                  "example": 400
                 },
                 "message": {
                   "type": "string",
